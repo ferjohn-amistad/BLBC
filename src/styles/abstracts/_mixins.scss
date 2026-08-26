@@ -1,0 +1,43 @@
+@use 'variables' as *;
+
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == 'small' {
+    @media (max-width: map-get($breakpoints, small)) {
+      @content;
+    }
+  } @else if $breakpoint == 'medium' {
+    @media (max-width: map-get($breakpoints, medium)) {
+      @content;
+    }
+  } @else if $breakpoint == 'large' {
+    @media (max-width: map-get($breakpoints, large)) {
+      @content;
+    }
+  } @else if $breakpoint == 'xlarge' {
+    @media (max-width: map-get($breakpoints, xlarge)) {
+      @content;
+    }
+  } @else if $breakpoint == 'xxlarge' {
+    @media (max-width: map-get($breakpoints, xxlarge)) {
+      @content;
+    }
+  } @else {
+    @warn "No valid breakpoint provided for respond mixin.";
+  }
+}
+
+
+@mixin container {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: $space-4;
+}
+
+
+// @mixin card-surface {
+//     background-color: $color-light;
+//     border: 1px solid rgba($color-light, 0.12);
+//     border-radius: 8px;
+// }

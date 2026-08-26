@@ -1,0 +1,45 @@
+@use '../../styles/abstracts/variables' as *;
+@use '../../styles/abstracts/mixins' as *;
+
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: $color-dark;
+    border-bottom: 1px solid rgba($color-light, 0.12); 
+
+    &__inner {
+        @include container;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+    }
+
+    &__brand {
+        font-family: $font-display;
+        font-size: 1.5rem;
+        color: $color-primary;
+    }
+
+    &__links {
+        display: flex;
+        gap: $space-4;
+    }
+
+    &__link {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: $color-light;
+        padding-block: $space-2;
+        border-bottom: 2px solid transparent;
+        transition: 150ms ease, color 150ms ease;
+
+        &:hover {
+            color: $color-primary;
+            border-bottom-color: $color-primary;
+        }
+    }
+}
